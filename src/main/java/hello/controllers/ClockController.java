@@ -22,12 +22,12 @@ public class ClockController {
         this.userRepository = userRepository;
     }
     @PostMapping("/setclock")
-    public String sClock(@RequestBody String clockJson){
+    public void sClock(@RequestBody String clockJson){
         System.out.println("Login info: " + clockJson);
-        return setTimeClock(clockJson);
+        setTimeClock(clockJson);
     }
 
-    private String setTimeClock(String clockJSon)
+    private void setTimeClock(String clockJSon)
     {
         Gson gson = new Gson();
         User userActual = gson.fromJson(clockJSon,User.class);
@@ -41,7 +41,7 @@ public class ClockController {
         jsonObject.addProperty("message","clock successful");
         message = gson.toJson(jsonObject);
 
-        return message;
+        //return message;
     }
 
     @PostMapping("/getclock")
@@ -58,27 +58,24 @@ public class ClockController {
 
         User userInDB = userRepository.findByUsername(userActual.getUsername());//getting user in database with this login
         String message = userInDB.getClock();
-        //JsonObject jsonObject = new JsonObject();
-        //jsonObject.addProperty("Time set to: ", message);
-        //message = gson.toJson(jsonObject);
 
         return gson.toJson(message);
     }
 
     @PostMapping("/removeclock")
-    public String rClock(@RequestBody String removeClockJson){
+    public void rClock(@RequestBody String removeClockJson){
         //System.out.println("Login info: " + removeClockJson);
-        return removeTimeClock(removeClockJson);
+        removeTimeClock(removeClockJson);
     }
 
-    private String removeTimeClock(String removeClockJSon)
+    private void removeTimeClock(String removeClockJSon)
     {
         Gson gson = new Gson();
         User userActual = gson.fromJson(removeClockJSon,User.class);
         User userInDB = userRepository.findByUsername(userActual.getUsername());
         userInDB.setClock("NULL");
         userRepository.save(userInDB);
-        return "Success";
+        //return "Success";
     }
 
     @PostMapping("/getallusers")
