@@ -29,7 +29,6 @@ public class RegistrationController {
         JsonObject jsonObject = new JsonObject();
         String message;
         if(userInDb == null) {
-            //System.out.println("add user to database");
             userRepository.save(user);
             message = "0";//User registered
         }else{

@@ -2,8 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="29f5a1c8-9c72-40f2-95a6-cb1223a3f93c" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/hello/controllers/ClockController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hello/controllers/ClockController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/hello/controllers/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hello/controllers/LoginController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/hello/controllers/RegistrationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hello/controllers/RegistrationController.java" afterDir="false" />
     </list>
@@ -78,7 +76,7 @@
       <workItem from="1576968239633" duration="5277000" />
       <workItem from="1576970365973" duration="2173000" />
       <workItem from="1576973102870" duration="129000" />
-      <workItem from="1576971953133" duration="1072000" />
+      <workItem from="1576971953133" duration="1224000" />
     </task>
     <servers />
   </component>

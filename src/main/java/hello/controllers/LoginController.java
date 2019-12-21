@@ -40,9 +40,7 @@ public class LoginController {
         String message;
         JsonObject jsonObject = new JsonObject();
         if(userInDB!=null&&userActual.getPassword().equals(userInDB.getPassword())){ //checking user from db
-            //jsonObject.addProperty("message","login successful");
             message = "0";//login successful
-            //System.out.println("return to client={}" + message);
             return gson.toJson(message);
         }
         if(userInDB==null) {
