@@ -58,11 +58,11 @@ public class ClockController {
 
         User userInDB = userRepository.findByUsername(userActual.getUsername());//getting user in database with this login
         String message = userInDB.getClock();
-        JsonObject jsonObject = new JsonObject();
-        jsonObject.addProperty("Time set to: ", message);
-        message = gson.toJson(jsonObject);
+        //JsonObject jsonObject = new JsonObject();
+        //jsonObject.addProperty("Time set to: ", message);
+        //message = gson.toJson(jsonObject);
 
-        return message;
+        return gson.toJson(message);
     }
 
     @PostMapping("/removeclock")
