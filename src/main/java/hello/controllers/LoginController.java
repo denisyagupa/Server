@@ -40,18 +40,16 @@ public class LoginController {
         String message;
         JsonObject jsonObject = new JsonObject();
         if(userInDB!=null&&userActual.getPassword().equals(userInDB.getPassword())){ //checking user from db
-            jsonObject.addProperty("message","login successful");
-            message = gson.toJson(jsonObject);
-            System.out.println("return to client={}" + message);
-            return message;
+            //jsonObject.addProperty("message","login successful");
+            message = "0";//login successful
+            //System.out.println("return to client={}" + message);
+            return gson.toJson(message);
         }
         if(userInDB==null) {
-            jsonObject.addProperty("message", "user does not exist, create account first");
+            message = "1";//user does not exist, create account first
         }else{
-            jsonObject.addProperty("message", "wrong login/password");
+            message = "2";//wrong login/password
         }
-        message = jsonObject.toString();
-        System.out.println("return to client={} " + message);
-        return message;
+        return gson.toJson(message);
     }
 }

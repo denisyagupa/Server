@@ -36,12 +36,6 @@ public class ClockController {
         User userInDB = userRepository.findByUsername(userActual.getUsername());//getting user in database with this login
         userInDB.setClock(userActual.getClock());
         userRepository.save(userInDB);
-        String message;
-        JsonObject jsonObject = new JsonObject();
-        jsonObject.addProperty("message","clock successful");
-        message = gson.toJson(jsonObject);
-
-        //return message;
     }
 
     @PostMapping("/getclock")
@@ -64,7 +58,6 @@ public class ClockController {
 
     @PostMapping("/removeclock")
     public void rClock(@RequestBody String removeClockJson){
-        //System.out.println("Login info: " + removeClockJson);
         removeTimeClock(removeClockJson);
     }
 
@@ -75,7 +68,6 @@ public class ClockController {
         User userInDB = userRepository.findByUsername(userActual.getUsername());
         userInDB.setClock("NULL");
         userRepository.save(userInDB);
-        //return "Success";
     }
 
     @PostMapping("/getallusers")
@@ -90,7 +82,6 @@ public class ClockController {
 
         ArrayList<User> alluserslist = new ArrayList<User>();
         alluserslist = userRepository.findAll();
-        //int i = 0;
         for (int i = 0; i < alluserslist.size(); i++)
         {
             if (userActual.getUsername().toString().equals(alluserslist.get(i).getUsername().toString()))
