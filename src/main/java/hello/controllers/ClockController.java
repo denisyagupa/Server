@@ -36,7 +36,10 @@ public class ClockController {
         User userInDB = userRepository.findByUsername(userActual.getUsername());//getting user in database with this login
         userInDB.setClock(userActual.getClock());
         userRepository.save(userInDB);
-        return "0";
+
+        String message = "0";
+
+        return gson.toJson(message);
     }
 
     @PostMapping("/getclock")
