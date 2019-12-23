@@ -22,12 +22,12 @@ public class ClockController {
         this.userRepository = userRepository;
     }
     @PostMapping("/setclock")
-    public void sClock(@RequestBody String clockJson){
+    public String  sClock(@RequestBody String clockJson){
         System.out.println("Login info: " + clockJson);
-        setTimeClock(clockJson);
+        return setTimeClock(clockJson);
     }
 
-    private void setTimeClock(String clockJSon)
+    private String setTimeClock(String clockJSon)
     {
         Gson gson = new Gson();
         User userActual = gson.fromJson(clockJSon,User.class);
@@ -36,6 +36,7 @@ public class ClockController {
         User userInDB = userRepository.findByUsername(userActual.getUsername());//getting user in database with this login
         userInDB.setClock(userActual.getClock());
         userRepository.save(userInDB);
+        return "0";
     }
 
     @PostMapping("/getclock")
