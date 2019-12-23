@@ -29,6 +29,7 @@ public class RegistrationController {
         JsonObject jsonObject = new JsonObject();
         String message;
         if(userInDb == null) {
+            user.setClock("NULL");
             userRepository.save(user);
             message = "0";//User registered
         }else{
