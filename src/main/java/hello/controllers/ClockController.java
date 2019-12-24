@@ -61,17 +61,19 @@ public class ClockController {
     }
 
     @PostMapping("/removeclock")
-    public void rClock(@RequestBody String removeClockJson){
-        removeTimeClock(removeClockJson);
+    public String rClock(@RequestBody String removeClockJson){
+        return removeTimeClock(removeClockJson);
     }
 
-    private void removeTimeClock(String removeClockJSon)
+    private String removeTimeClock(String removeClockJSon)
     {
         Gson gson = new Gson();
         User userActual = gson.fromJson(removeClockJSon,User.class);
         User userInDB = userRepository.findByUsername(userActual.getUsername());
         userInDB.setClock("NULL");
         userRepository.save(userInDB);
+        String message = "0";
+        return gson.toJson(message);
     }
 
     @PostMapping("/getallusers")
